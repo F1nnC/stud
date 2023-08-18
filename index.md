@@ -3,10 +3,12 @@ layout: default
 title: Home Page
 ---
 
+
 # Finn's Blog
 - Record for my CSA work
 
-# Starting Project
+# Starting Projects
+- [Calculator]({{site.baseurl}}/calc)
 
 
 ### About me page
