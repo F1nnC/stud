@@ -76,3 +76,36 @@ layout: default
   {%- endif -%}
 
 </div>
+<div class="home">
+  <!-- Your existing code for the main post list goes here -->
+
+  {% if posts.size > 0 %}
+    {% if page.list_title %}
+      <h2 class="post-list-heading">{{ page.list_title }}</h2>
+    {% endif %}
+    <ul class="post-list">
+      <!-- Your existing loop to generate the main post list goes here -->
+    </ul>
+
+    <!-- Pagination code goes here -->
+  {% endif %}
+
+  <!-- New section for the separate list of posts with "hacks" category -->
+  {% assign hack_posts = '' | split: '' %}
+  {% for post in posts %}
+    {% if post.categories contains 'hacks' %}
+      {% assign hack_posts = hack_posts | push: post %}
+    {% endif %}
+  {% endfor %}
+
+  {% if hack_posts.size > 0 %}
+    <h2 class="post-list-heading">Hacks</h2>
+    <ul class="post-list">
+      {% for post in hack_posts %}
+        <li>
+          {%- include post_list.html -%}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</div>
