@@ -1,9 +1,20 @@
 <header class="site-header">
 
   <div id="header">
-        <div class="fork"><a href="{{site.baseurl}}/">Home</a></div>
-        <div class="fork"><a href="{{site.baseurl}}/calc">Calculator</a></div>
-        <div class="fork"><a href="{{site.baseurl}}/blogs">TOC</a></div>
+    <nav>
+      <ul>
+        <li class="fork"><a href="{{site.baseurl}}/">Home</a></li>
+        <li class="fork"><a href="{{site.baseurl}}/calc">Calculator</a></li>
+        <li class="fork"><a href="{{site.baseurl}}/blogs">TOC</a></li>
+      </ul>
+    </nav>
   </div><!-- end header -->
 </header>
 
+<style>
+#header {
+  display: flex;
+  align-items: center;
+}
+
+</style>
