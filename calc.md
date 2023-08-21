@@ -9,7 +9,7 @@ title: Calculator project
     }
     .button {
         flex: 4; 
-        background: hotpink;
+        background: lightblue;
         border: solid 3px black;
         height: 50px;
         opacity: 0.9;
