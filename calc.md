@@ -1,6 +1,10 @@
 ---
+comments: true
 layout: default
-title: Calculator project
+title: Calculator
+description: Calculator made with javascript
+type: tangibles
+courses: { csse: {week: 1}, csp: {week: 1}, csa: {week: 0} }
 ---
 
 <style>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+
+{%- include head.html -%}
+
+<style>
+  .post-header {
+    position: static;
+  }
+  .wrapper {
+    position: static;
+  }
+  .category-tags-container .category-tags-link {
+    color: black;
+    /* Add any additional styling you want */
+  }
+  /* Target the category links within the .category-tags paragraph */
+.category-tags-container .category-tags-link {
+    color: black;
+    /* Add any additional styling you want */
+  }
+a {
+    color: #FFF;
+    font-weight: 400;
+    text-decoration: none;
+}
+li {
+    text-align: left;
+}
+section {
+    margin: auto;
+}
+</style>
+
+<body>
+  <header class="post-header">
+    <div style="display: flex; padding: 20px; margin: auto;">
+        <div style="padding-right: 10px; padding-left: 10px; border: 5px black;"><a href="{{site.baseurl}}/">Home</a></div>
+        <div style="padding-right: 10px; padding-left: 10px; border: 5px black;"><a href="{{site.baseurl}}/calc">Calculator</a></div>
+        <div style="padding-right: 10px; padding-left: 10px; border: 5px black;"><a href="{{site.baseurl}}/blogs">Blogs</a></div>
+        <div style="padding-right: 10px; padding-left: 10px; border: 5px black;"><a href="{{site.baseurl}}/hacks">Hacks</a></div>
+        <div style="padding-right: 10px; padding-left: 10px; border: 5px black;"><a href="{{site.baseurl}}/weeks">Weeks</a></div>
+      </div>
+    <h1 
+      class="post-title p-name" itemprop="name headline">{{ page.title | escape }}
+      • {% include read_time.html -%}
+    </h1>
+
+    <p class="post-meta post-meta-title">
+      {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {{ page.date | date: date_format }}
+      </time>
+      {%- if page.modified_date -%}
+        ~ 
+        {%- assign mdate = page.modified_date | date_to_xmlschema -%}
+        <time class="dt-modified" datetime="{{ mdate }}" itemprop="dateModified">
+          {{ mdate | date: date_format }}
+        </time>
+      {%- endif -%}
+      {%- if page.author -%}
+        • {% for author in page.author %}
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">{{ author }}</span></span>
+            {%- if forloop.last == false %}, {% endif -%}
+        {% endfor %}
+      {%- endif %}
+    </p>
+
+    {%- if page.description -%}
+      <h2>Description</h2>
+      {%- if site.html_escape.description -%}
+        <p class="page-description">{{ page.description | escape }}</p>
+      {%- else -%}
+        <p class="page-description">{{ page.description }}</p>
+      {%- endif -%}
+    {%- endif -%}
+    
+
+    {% if page.categories.size > 0 and site.show_tags %}
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      {% for category in  page.categories  %}
+        {%- assign prefix = category | slice: 0 -%}
+        {% if prefix == "C" %}
+          <a class="category-tags-link" href="{{site.baseurl}}/categories/cte#{{category|slugize}}">{{category}}</a>
+        {% else %}
+          <a class="category-tags-link" href="{{site.baseurl}}/categories/ap#{{category|slugize}}">{{category}}</a>
+        {% endif %}
+        {% unless forloop.last %}&nbsp;{% endunless %}
+      {% endfor %}
+      </p>
+    {% endif %}
+
+    {%- if page.toc -%}
+      {% include toc.html html=content %}
+    {%- endif -%}
+
+  </header>
+
+    <br>
+    <section style="display: flex;">
+    <div style="flex: 1;">
+      {{ content }}
+    </div>
+    </section>
+
+  </div>
+</body>
+
+
+</html>
