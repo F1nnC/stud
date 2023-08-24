@@ -1,27 +1,27 @@
 # CSP course meta data
 Unit1:
-  title: Introduction to Tools and Resources
-  description: August
+  title: August
+  description: 
   start: 0
   end: 3
 Unit2:
-  title: Java Mini-labs
-  description: September
+  title: September
+  description:
   start: 4
   end: 7
 Unit3:
-  title:  Individual/Team Projects and N@tM
-  description: Novemeber
+  title: Novemeber
+  description: 
   start: 8
   end: 12
 Unit4:
-  title: College Board Teaching and Study 
-  description: December
+  title: December
+  description: 
   start: 13
   end: 16
 Unit5:
-  title: Passion Projects
-  description: January
+  title: January
+  description: 
   start: 17
   end: 20
 Unit6:
