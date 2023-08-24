@@ -22,3 +22,5 @@ title: Home Page
 | Rating | 7/10     | 6/10     | 10/10    | 2/10     | 10/10    |
 
 
+![bo nickel]({{site.baseurl}}/bo nickel.jpeg)
+
