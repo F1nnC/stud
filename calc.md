@@ -7,32 +7,7 @@ type: tangibles
 courses: { csse: {week: 1}, csp: {week: 1}, csa: {week: 0} }
 ---
 
-<style>
-    .container {
-        display:flex;
-    }
-    .button {
-        flex: 4; 
-        background: lightblue;
-        border: solid 3px black;
-        height: 50px;
-        opacity: 0.9;
-    }
-    .button:hover {
-        opacity: 1;
-    }
-    .display {
-        flex: 4; 
-        background: hotpink;
-        border: solid 3px black;
-        height: 50px;
-        font-size: 30px;
-        color: black;
-        font-style: bold;
-        padding: 5px;
-        transition: 0.1;
-    }
-</style>
+<link rel="stylesheet" href="{{site.baseurl}}/assets/css/calc.css">
 
 <div class="container">
     <p class="display"></p>

@@ -1,0 +1,26 @@
+.container {
+    display:flex;
+}
+.button {
+    flex: 4; 
+    background: rgb(151, 78, 35);
+    border: solid 3px black;
+    height: 50px;
+    opacity: 0.9;
+    border-radius: 10px;
+}
+.button:hover {
+    opacity: 1;
+}
+.display {
+    flex: 4; 
+    background: rgb(196, 164, 132);
+    border: solid 3px black;
+    height: 50px;
+    font-size: 30px;
+    color: black;
+    font-style: bold;
+    padding: 5px;
+    transition: 0.1;
+    border-radius: 10px;
+}
