@@ -3,7 +3,7 @@ comments: true
 layout: default
 title: Calculator
 description: Calculator made with javascript
-type: tangibles
+type: hacks
 courses: { csse: {week: 1}, csp: {week: 1}, csa: {week: 0} }
 ---
 
