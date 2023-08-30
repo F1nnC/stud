@@ -6,13 +6,31 @@ title: Home Page
 
 # Finn's Blog
 - Record for my CSA work
+- Highschool Junior
+- Wrestler
+- Skateboarder
+- Coder
+- Hopefuly a job in CS
 
-# Starting Projects
-- [Calculator]({{site.baseurl}}/calc)
+# Lab Notebook TOC
+## [TOC]({{site.baseurl}}/weeks)
 
+<br>
 
-## About me page
-- [Link]({{site.baseurl}}/about)
+## Favorite Wrestler
+- Bo Nickel
+
+![bo nickel]({{site.baseurl}}/images/bo_nickel.jpeg)
+
+## Favorite Car
+- Porsche 911 GT3
+
+![porsche 911 gt3]({{site.baseurl}}/images/gt3.jpg)
+
+## Favorite Skater
+- Joa Fields (aka gifted hater)
+
+![gifted hater]({{site.baseurl}}/images/gifted_hater.png)
 
 ## School Scedule Tri 1
 
