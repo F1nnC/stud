@@ -14,6 +14,9 @@
     <section>
       {{ content }}
     </section>
+    {%- if page.comments -%}
+    {%- include utterances.html -%}
+    {%- endif -%}
 
   </div>
 </body>
