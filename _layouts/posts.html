@@ -15,33 +15,33 @@
     /* Add any additional styling you want */
   }
   /* Target the category links within the .category-tags paragraph */
-.category-tags-container .category-tags-link {
+  .category-tags-container .category-tags-link {
     color: black;
     /* Add any additional styling you want */
   }
-a {
+  a {
     color: #FFF;
     font-weight: 400;
     text-decoration: none;
-}
-li {
+  }
+  li {
     text-align: left;
-}
-section {
+  }
+  section {
     margin: auto;
-}
+  }
 </style>
 
 <body>
   <header class="post-header">
     <div style="display: flex; padding: 20px; margin: auto;">
-        <div style="padding-right: 10px; padding-left: 10px; border: 5px black;"><a href="{{site.baseurl}}/">Home</a></div>
-        <div style="padding-right: 10px; padding-left: 10px; border: 5px black;"><a href="{{site.baseurl}}/weeks">Lab Notebook</a></div>
-        <div style="padding-right: 10px; padding-left: 10px; border: 5px black;"><a href="{{site.baseurl}}/calc">Calculator</a></div>
-        <div style="padding-right: 10px; padding-left: 10px; border: 5px black;"><a href="{{site.baseurl}}/snake">Snake</a></div>
-        <div style="padding-right: 10px; padding-left: 10px; border: 5px black;"><a href="{{site.baseurl}}/blogs">Blogs</a></div>
-        <div style="padding-right: 10px; padding-left: 10px; border: 5px black;"><a href="{{site.baseurl}}/hacks">Hacks</a></div>
-      </div>
+      <div style="padding-right: 10px; padding-left: 10px; border: 5px black;"><a href="{{site.baseurl}}/">Home</a></div>
+      <div style="padding-right: 10px; padding-left: 10px; border: 5px black;"><a href="{{site.baseurl}}/weeks">Time Box</a></div>
+      <div style="padding-right: 10px; padding-left: 10px; border: 5px black;"><a href="{{site.baseurl}}/calc">Calculator</a></div>
+      <div style="padding-right: 10px; padding-left: 10px; border: 5px black;"><a href="{{site.baseurl}}/snake">Snake</a></div>
+      <div style="padding-right: 10px; padding-left: 10px; border: 5px black;"><a href="{{site.baseurl}}/blogs">Blogs</a></div>
+      <div style="padding-right: 10px; padding-left: 10px; border: 5px black;"><a href="{{site.baseurl}}/hacks">Hacks</a></div>
+    </div>
     <h1 
       class="post-title p-name" itemprop="name headline">{{ page.title | escape }}
       • {% include read_time.html -%}
@@ -98,15 +98,17 @@ section {
 
   </header>
 
-    <br>
-    <section>
+  <br>
+  <section>
     <div>
       {{ content }}
     </div>
-    </section>
+  </section>
 
-  </div>
+  {%- if page.comments -%}
+    {%- include utterances.html -%}
+  {%- endif -%}
+
 </body>
-
 
 </html>
