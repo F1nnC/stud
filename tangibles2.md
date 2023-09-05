@@ -15,4 +15,4 @@ courses: { csa: {week: 2} }
     }
 </style>
 
-## [Github Issue](https://github.com/F1nnC/stud/issues/2#issuecomment-1703189782)
+## [Github Issue](https://github.com/F1nnC/stud/issues/3)
