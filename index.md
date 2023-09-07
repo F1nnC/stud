@@ -3,7 +3,6 @@ layout: default
 title: Home Page
 ---
 
-
 # Finn's Blog
 - Record for my CSA work
 - Highschool Junior
