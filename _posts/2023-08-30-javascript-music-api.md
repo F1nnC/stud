@@ -30,6 +30,7 @@ type: hacks
 </table>
 
 <h2> Recently Searched </h2>
+<button onclick="clearSearchHistory()">Delete History</button>
 
 <table>
   <thead>
@@ -47,6 +48,12 @@ type: hacks
 
 <!-- Script is laid out in a sequence (no function) and will execute when the page is loaded -->
 <script>
+  function clearSearchHistory() {
+    localStorage.removeItem("recentlySearched");
+    // Clear the displayed search history on the page
+    updateRecentlySearchedTable();
+  }
+
   // prepare HTML result container for new output
   const resultContainer = document.getElementById("result");
   const localStorageContainer = document.getElementById("local-storage");
@@ -153,59 +160,53 @@ type: hacks
   }
 
   // Function to update the Recently Searched table
-  function updateRecentlySearchedTable() {
-    const recentlySearched = JSON.parse(localStorage.getItem("recentlySearched")) || [];
-    const localStorageContainer = document.getElementById("local-storage");
-    localStorageContainer.innerHTML = "";
+  // Function to update the Recently Searched table
+function updateRecentlySearchedTable() {
+  const recentlySearched = JSON.parse(localStorage.getItem("recentlySearched")) || [];
+  const localStorageContainer = document.getElementById("local-storage");
+  localStorageContainer.innerHTML = "";
 
-    for (const item of recentlySearched) {
-      const tr = document.createElement("tr");
-      const artist = document.createElement("td");
-      const track = document.createElement("td");
-      const image = document.createElement("td");
-      const preview = document.createElement("td");
+  // Reverse the order of search history items
+  for (let i = recentlySearched.length - 1; i >= 0; i--) {
+    const item = recentlySearched[i];
 
-      artist.innerHTML = item.artist;
-      track.innerHTML = item.track;
+    // Create table row and cells
+    const tr = document.createElement("tr");
+    const artist = document.createElement("td");
+    const track = document.createElement("td");
+    const image = document.createElement("td");
+    const preview = document.createElement("td");
 
-      // create preview image
-      const img = document.createElement("img");
-      img.src = item.image;
-      image.appendChild(img);
+    // Set content for cells
+    artist.innerHTML = item.artist;
+    track.innerHTML = item.track;
 
-      // create preview player
-      const audio = document.createElement("audio");
-      audio.controls = true;
-      const source = document.createElement("source");
-      source.src = item.preview;
-      source.type = "audio/mp4";
-      audio.appendChild(source);
-      preview.appendChild(audio);
+    // Create preview image
+    const img = document.createElement("img");
+    img.src = item.image;
+    image.appendChild(img);
 
-      tr.appendChild(artist);
-      tr.appendChild(track);
-      tr.appendChild(image);
-      tr.appendChild(preview);
+    // Create preview player
+    const audio = document.createElement("audio");
+    audio.controls = true;
+    const source = document.createElement("source");
+    source.src = item.preview;
+    source.type = "audio/mp4";
+    audio.appendChild(source);
+    preview.appendChild(audio);
 
-      localStorageContainer.appendChild(tr);
-    }
+    // Add cells to the row
+    tr.appendChild(artist);
+    tr.appendChild(track);
+    tr.appendChild(image);
+    tr.appendChild(preview);
+
+    // Add the row to the table
+    localStorageContainer.appendChild(tr);
   }
+}
+
 
   // Call updateRecentlySearchedTable to initialize it
   updateRecentlySearchedTable();
 </script>
-
-
-
-
-
-## Hacks
-The endpoint itunes.apple.com allows requests and responses on their `data`.   We provide the Input and Output interaction with the itunes data;  however, we do not create or manage the data.  There is a backend process that creates and stores data.  
-
-In this type of Website relationship we could provide..
-- A better starting screen.  Providing sample queries on screen.
--  Provide a local storage to show recent or liked queries by the user.
-
-But, we would need backend help to..
-- Show most popular queries.
-- Add or modify posts.
