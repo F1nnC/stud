@@ -1,0 +1,117 @@
+// Define variables for colors
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+
+// Apply styles to headers
+h1, h2, h3, h4, h5, h6 {
+  color: $primary-color;
+}
+
+// Apply styles to text
+p {
+  color: $secondary-color;
+}
+
+$font-size-base: 16px; // Try changing this value to observe @debug output
+
+@function calculate-line-height($font-size) {
+  @debug "Calculating line height for font size: #{$font-size}px";
+
+  $line-height-ratio: 1.5; 
+  $line-height: $font-size * $line-height-ratio;
+
+  @return $line-height;
+}
+body {
+  font-size: $font-size-base;
+  line-height: calculate-line-height($font-size-base);
+}
+
+// Define SASS variables
+$column-width: 200px;
+$min-columns: 2;
+$max-columns: 4;
+
+// Function to calculate the number of columns based on screen width
+@function calculate-columns($width) {
+  @return max($min-columns, min($max-columns, floor($width / $column-width)));
+}
+
+// Define the grid container
+.grid-container {
+  display: grid;
+  grid-gap: 20px;
+
+  // Calculate columns dynamically based on screen width
+  grid-template-columns: repeat(
+    span calculate-columns(100vw),
+    minmax($column-width, 1fr)
+  );
+}
+
+// Define the grid items
+.grid-item {
+  background-color: lightgray;
+  padding: 20px;
+  text-align: center;
+}
+
+// Media queries for responsive design
+@media screen and (max-width: 600px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 900px) {
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+// SCSS Syntax
+$primary-color: red; // Change this to an invalid color, e.g., 'red'
+
+
+@mixin validate-color($color) {
+  @if type-of($color) != color {
+    @error "Invalid color provided: #{$color}. Please provide a valid color.";
+  }
+}
+
+.element {
+  background-color: $primary-color;
+  @include validate-color($primary-color);
+}
+
+
+
+//garbage
+
+
+@function adjust-color($base-color, $iteration) {
+  // Adjust saturation and brightness based on the iteration
+  $adjusted-color: adjust-hue($base-color, 10deg * $iteration);
+  $adjusted-color: desaturate($adjusted-color, 5% * $iteration);
+  $adjusted-color: lighten($adjusted-color, 5% * $iteration);
+  @return $adjusted-color;
+}
+
+@for $i from 0 through 8 {
+  .color-square div:nth-child(#{$i + 1}) {
+    background-color: adjust-color(hsl(0, 100%, 50%), $i);
+  }
+}
+
+.color-square {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  width: 300px; // Adjust the width as needed
+}
+
+.color-square div {
+  height: 100px;
+  width: 100px;
+  border: 1px solid #000;
+}
