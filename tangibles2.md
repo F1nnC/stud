@@ -4,7 +4,7 @@ comments: true
 layout: default
 title: Github Issue 2
 description: some hacks are in this blog about my tools
-categories: [hacks]
+categories: [hacks, tangibles]
 type: tangibles
 courses: { csa: {week: 2} }
 ---

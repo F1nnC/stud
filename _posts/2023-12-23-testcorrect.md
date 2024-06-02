@@ -4,6 +4,7 @@ comments: true
 layout: posts
 title: Test Reflection
 description: notes
+type: AP
 permalink: MCQ2
 ---
 
